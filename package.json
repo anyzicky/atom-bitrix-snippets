@@ -1,7 +1,7 @@
 {
   "name": "bitrix-snippets",
   "main": "index.js",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Bitrix CMF snippets for Atom",
   "repository": "https://github.com/anyzicky/atom-bitrix-snippets",
   "license": "MIT",

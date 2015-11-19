@@ -1,0 +1,21 @@
+".source.php":
+    "APPLICATION.ShowMeta":
+        "prefix": "APPLImeta"
+        "body": """
+        $APPLICATION->ShowMeta('${1:metaName}');
+        """
+    "APPLICATION.ShowTitle":
+        "prefix": "APPLItitle"
+        "body": """
+        $APPLICATION->ShowTitle();
+        """
+    "APPLICATION.ShowHead":
+        "prefix": "APPLIhead"
+        "body": """
+        $APPLICATION->ShowHead();
+        """
+    "APPLICATION.ShowPanel":
+        "prefix": "APPLIpanel"
+        "body": """
+        $APPLICATION->ShowPanel();
+        """

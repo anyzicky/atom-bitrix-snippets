@@ -1,0 +1,49 @@
+".source.php":
+    "CIBlockSection.Add":
+        "prefix": "CIBlockSectionAdd"
+        "body": """
+        $rsSect = new CIBlockSection;
+        $arFields = array(
+          'ACTIVE' => 'Y',
+          'NAME'   => '${1:name}'
+        );
+        if(!$id = $rsSect->Add($arFields))
+            echo "Error:" . $rsSect->LAST_ERROR;
+        """
+    "CIBlockSection.Delete":
+        "prefix": "CIBlockSectionDel"
+        "body": """
+        CIBlockSection::Delete('${1:SectionID}');
+        """
+    "CIBlockSection.GetByID":
+        "prefix": "CIBlockSectionID"
+        "body": """
+        $arSection = CIBlockSection::GetByID(${1:SectionID})->fetch();
+        if(is_array($arSection))
+            //body ...
+        """
+    "CIBlockSection.GetList":
+        "prefix": "CIBlockSectionList"
+        "body": """
+        $rsSection = CIBlockSection::GetList(
+            $arOrder  = array('SORT' => 'ASC'),
+            $arFilter = array(
+                'ACTIVE' => 'Y'
+            ),
+            false,
+            $arSelect = array('ID','NAME','IBLOCK_ID','CODE','UF_*'),
+            false
+        );
+        while($arSection = $rsSection->fetch())
+            var_export($arSection);
+        """
+    "CIBlockSection.Update":
+        "prefix": "CIBlocSectionkUpdate"
+        "body": """
+        $rsSection = new CIBlockSection;
+        $arFields = array(
+          'ACTIVE' => 'Y',
+          ...
+        );
+        $rsIDSection = $rsSection->Update(${1:id},$arFields);
+        """

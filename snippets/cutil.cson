@@ -1,0 +1,6 @@
+".source.php":
+    "CUtil.translit":
+        "prefix": "cutiltranslit"
+        "body": """
+        CUtil::translit('${1:text}','${2:lang}',array(...));
+        """

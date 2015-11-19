@@ -1,0 +1,44 @@
+".source.php":
+    "CIBlock.Add":
+        "prefix": "CIBlockAdd"
+        "body": """
+        $rsIB = new CIBlock;
+        $arFields = array(
+          'ACTIVE' => 'Y',
+          'CODE'   => '${1:codename}'
+        );
+        $id = $rsIB->Add($arFields);
+        """
+    "CIBlock.Delete":
+        "prefix": "CIBlockDel"
+        "body": """
+        CIBlock::Delete('${1:iblockID}');
+        """
+    "CIBlock.GetByID":
+        "prefix": "CIBlockID"
+        "body": """
+        $arBlock = CIBlock::GetByID('${1:iblockID}')->fetch();
+        """
+    "CIBlock.GetList":
+        "prefix": "CIBlockList"
+        "body": """
+        $rsBlock = CIBlock::GetList(
+            $arOrder  = array('SORT' => 'ASC'),
+            $arFilter = array(
+                'ACTIVE' => 'Y'
+            ),
+            true
+        );
+        while($arBlocks = $rsBlock->fetch())
+            var_export($arBlocks);
+        """
+    "CIBlock.Update":
+        "prefix": "CIBlockUpdate"
+        "body": """
+        $rsIB = new CIBlock;
+        $arFields = array(
+          'ACTIVE' => 'Y',
+          ...
+        );
+        $rsID = $rsIB->Update('${1:id}',$arFields);
+        """

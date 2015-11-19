@@ -1,0 +1,6 @@
+".source.php":
+    "CModule.IncludeModule":
+        "prefix": "cmoduleinclude"
+        "body": """
+        CModule::IncludeModule('${1:moduleName}');
+        """

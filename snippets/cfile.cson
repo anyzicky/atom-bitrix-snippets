@@ -1,0 +1,12 @@
+".source.php":
+    "CFile.Delete":
+        "prefix": "CFileDelete"
+        "body": """
+        CFile::Delete('${1:fileID}');
+        """
+    "CFile.GetPath":
+        "prefix": "CFileGetPath"
+        "body": """
+        CFile::GetPath('${1:fileID}');
+        """
+        

@@ -1,0 +1,12 @@
+".source.php":
+    "D7User":
+        "prefix": "d7user"
+        "body": """
+        $arUsers = \Bitrix\Main\UserTable::getList(array(
+            'select' => array('LOGIN'),
+            'filter' => array('ID' => '1')
+        )->fetch());
+
+        foreach($arUsers as $arUser)
+            var_export($arUser);
+        """

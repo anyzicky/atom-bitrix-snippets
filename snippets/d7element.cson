@@ -1,0 +1,12 @@
+".source.php":
+    "D7element":
+        "prefix": "d7element"
+        "body": """
+        $arElements = \Bitrix\Iblock\ElementTable::getList(array(
+            'select' => array('NAME'),
+            'filter' => array('ID' => '${1:id}')
+        ))->fetch();
+
+        foreach($arElements as $arElement)
+            var_export($arElement);
+        """

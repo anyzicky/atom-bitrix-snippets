@@ -1,0 +1,12 @@
+".source.php":
+    "D7section":
+        "prefix": "d7section"
+        "body": """
+        $arSections = \Bitrix\Iblock\SectionTable::getList(array(
+            'select' => array('NAME'),
+            'filter' => array('ID' => '${1:id}')
+        ))->fetch();
+
+        foreach($arSections as $arSection)
+            var_export($arSection);
+        """

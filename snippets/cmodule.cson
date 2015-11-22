@@ -4,3 +4,14 @@
         "body": """
         CModule::IncludeModule('${1:moduleName}');
         """
+    "CModule.AddAutoloadClasses":
+        "prefix": "cmoduleaddautoload"
+        "body": """
+        CModule::AddAutoloadClasses(
+            '',
+            array(
+                '${1:classname}' => '${2:pathclass}',
+                ...
+            )
+        );
+        """

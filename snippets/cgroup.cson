@@ -1,0 +1,57 @@
+".source.php":
+    "CGroup.Add":
+        "prefix": "cgroupadd"
+        "body": """
+        $rsGroup = new CGroup;
+        $arFields = Array(
+          "ACTIVE"       => "Y",
+          "C_SORT"       => 100,
+          "NAME"         => "${1:groupName}",
+          "DESCRIPTION"  => "${2:desc}",
+          "USER_ID"      => array('${3:usersID}'),
+          );
+        $id = $group->Add($arFields);
+        if (strlen($rsGroup->LAST_ERROR)>0) echo $rsGroup->LAST_ERROR;
+        """
+    "CGroup.Delete":
+        "prefix": "cgroupdelete"
+        "body": """
+        $rsGroup = new CGroup;
+        if(!$rsGroup->Delete('${1:groupID}'))
+            echo 'Group Delete';
+        """
+    "CGroup.GetByID":
+        "prefix": "cgroupgetby"
+        "body": """
+        $arGroup = CGroup::GetByID('${1:groupID}','Y')->fetch();
+        if(is_array($arGroup))
+            var_export($arGroup);
+        """
+    "CGroup.GetList":
+        "prefix": "cgroupgetlist"
+        "body": """
+        $arFilter = array(
+            'ID'        => '${1:groupID}',
+            'ACTIVE'    => 'Y',
+            ...
+        );
+
+        $rsGroups = CGroup::GetList(
+            ($by = "c_sort"),
+            ($order = "desc"),
+            $arfilter
+        );
+        while($arGroup = $rsGroups->fetch())
+            var_export($arGroup);
+        """
+    "CGroup.Update":
+        "prefix": "cgroupupdate"
+        "body": """
+        $arFields = array(
+            'ACTIVE' => 'Y',
+            'NAME'   => '${1:newgroupname}'
+        );
+        $rsGroup = new CGroup;
+        $rsGroup->Update('${2:groupID}', $arfields);
+        if (strlen($rsGroup->LAST_ERROR)>0) echo $rsGroup->LAST_ERROR;
+        """

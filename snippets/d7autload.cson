@@ -1,0 +1,12 @@
+".source.php":
+    "D7Autload":
+        "prefix": "d7autoload"
+        "body": """
+        \Bitrix\Main\Loader::registerAutoLoadClasses(
+            '',
+            array(
+                '${1:classname}' => '${2:pathclass}',
+                ...
+            )
+        );
+        """

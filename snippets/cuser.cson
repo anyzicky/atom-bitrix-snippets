@@ -1,0 +1,61 @@
+".source.php":
+    "CUser.add":
+        "prefix": "cuseradd"
+        "body": """
+        $rsUser = new CUser;
+        $arFields = array(
+            'NAME'      => '${1:username}',
+            'LAST_NAME' => '${2:usernamelast}',
+            'EMAIL'     => '${3:usremail}',
+            'LOGIN'     => '${4:login}',
+            'ACTIVE'    => 'Y',
+            'GROUP_ID'  => array('${5:groups}'),
+            'PASSWORD'  => '${6:userpass}'
+        );
+
+        $id = $rsUser->Add($arfields);
+        if(!$id)
+            echo $rsUser->LAST_ERROR;
+        """
+
+    "CUser.delete":
+        "prefix": "cuserdelete"
+        "body": """
+        CUser::Delete('${1:usrid}');
+        """
+    "CUser.GetByID":
+        "prefix": "cusergetbyid"
+        "body": """
+        $arUser = CUser::GetByID('${1:usrid}')->fetch();
+        if(is_array($arUser))
+            var_export($arUser);
+        """
+
+    "CUser.GetList":
+            "prefix": "cusergetlist"
+            "body": """
+            $arFilter = array(
+                'ACTIVE' => 'Y',
+                'ID' => '${1:usrid}'
+            );
+            $rsUsers = CUser::GetList(
+            ($by = "personal_country"),
+            ($order = "desc"),
+            $arFilter
+            );
+            while($arUsers = $rsUsers->fetch()){
+                var_export($arUsers);
+            }
+            """
+
+    "CUser.Update":
+        "prefix": "cuserupdate",
+        "body": """
+        $arFields = array(
+            'NAME'  => '${1:newusername}',
+            'EMAIL' => '${2:newusremail}',
+            ....
+        );
+        $rsUser = new CUser;
+        $rsUser->Update('${3:usrID}', $arFields);
+        """

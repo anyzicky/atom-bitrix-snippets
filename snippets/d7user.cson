@@ -2,7 +2,7 @@
     "D7User":
         "prefix": "d7user"
         "body": """
-        $arUsers = \\Bitrix\\Main\\UserTable::getList(array(
+        $arUsers = \\\\Bitrix\\\\Main\\\\UserTable::getList(array(
             'select' => array('LOGIN'),
             'filter' => array('ID' => '1')
         )->fetch());

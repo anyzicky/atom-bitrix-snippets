@@ -2,7 +2,7 @@
     "D7section":
         "prefix": "d7section"
         "body": """
-        $arSections = \Bitrix\Iblock\SectionTable::getList(array(
+        $arSections = \\Bitrix\\Iblock\\SectionTable::getList(array(
             'select' => array('NAME'),
             'filter' => array('ID' => '${1:id}')
         ))->fetch();

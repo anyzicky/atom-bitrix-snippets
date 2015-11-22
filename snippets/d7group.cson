@@ -2,7 +2,7 @@
     "D7Group.getList":
         "prefix": "d7grouplist"
         "body": """
-        $arGroups = \Bitrix\Main\GroupTable::getList(array(
+        $arGroups = \\Bitrix\\Main\\GroupTable::getList(array(
             'select' => array('NAME'),
             'filter' => array('ID' => '${1:id}')
         ))->fetch();

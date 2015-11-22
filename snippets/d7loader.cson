@@ -2,5 +2,5 @@
     "D7Loader":
         "prefix": "d7loader"
         "body": """
-        \Bitrix\Main\Loader::includeModule('${1:module}');
+        \\Bitrix\\Main\\Loader::includeModule('${1:module}');
         """
